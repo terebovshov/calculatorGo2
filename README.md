@@ -1,1 +1,1 @@
-# calculatorGo2
+# go run main.go IO.go Calculate.go
