@@ -2,6 +2,7 @@
 package main
 
 import (
+	"calculatorGo2/Act"
 	"strconv"
 	"strings"
 )
@@ -51,7 +52,7 @@ func Calculate(calc string) interface{} {
 		if n < 1 || n > 10 {           // если ошибка или число не в диапазоне от 1 до 10
 			panic("недопустимое число для деления") // вызываем panic
 		}
-		return StringDivideInt(operand1, n) // вызываем функцию для деления строки на число
+		return Act.StringDivideInt(operand1, n) // вызываем функцию для деления строки на число
 	case "*":
 		n, _ := strconv.Atoi(operand2) // конвертируем второй операнд в число
 		if n < 1 || n > 10 {           // если ошибка или число не в диапазоне от 1 до 10
@@ -62,28 +63,4 @@ func Calculate(calc string) interface{} {
 		// Паника при неверном операторе.
 		panic("неверный оператор: " + operator)
 	}
-}
-
-func StringPlusString(a string, b string) string {
-	return a + b
-}
-
-func StringMinusString(a string, b string) string {
-	result := strings.ReplaceAll(a, b, "")
-	return result
-}
-
-func StringMultiplyInt(operand1 string, n int) string {
-	result := ""
-	for i := 0; i < n; i++ {
-		result += operand1
-	}
-	return result
-}
-
-func StringDivideInt(s string, n int) string {
-	//	if n <= 0 {panic("Деление на 0 или отрицательные числа запрещено")}
-	length := len(s) / n
-	result := s[:length]
-	return result
 }
