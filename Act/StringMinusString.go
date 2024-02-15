@@ -1,5 +1,5 @@
 // StringMinusString.go
-package main
+package Act
 
 import "strings"
 

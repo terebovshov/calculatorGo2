@@ -1,5 +1,5 @@
 // StringMultiplyInt.go
-package main
+package Act
 
 func StringMultiplyInt(operand1 string, n int) string {
 	result := ""

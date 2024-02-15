@@ -8,7 +8,6 @@ import (
 func main() {
 	for {
 		input := GetUserInput()
-		fmt.Println("Введенные данные: ", input)
 		if IsExitCommand(input) {
 			HandleExit()
 			return // Прерывание выполнения функции main(), что приведет к завершению программы
@@ -16,7 +15,18 @@ func main() {
 
 		// Выполнение операции и вывод результата.
 		result := Calculate(input)
-		//	fmt.Println("Результат: ", result)
-		fmt.Println("Результат: \"" + fmt.Sprint(result) + "\"")
+
+		// Преобразование результата в строку
+		resultStr := fmt.Sprint(result)
+
+		// Проверка длины результата и его обработка.
+		if len(resultStr) > 40 {
+			// Обрезка ответа после 40 символов
+			resultStr = resultStr[:40]
+			// Добавление многоточия в конце
+			resultStr += "..."
+		}
+		// Вывод результата.
+		fmt.Println("Результат: \"" + resultStr + "\"")
 	}
 }

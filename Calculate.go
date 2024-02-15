@@ -2,14 +2,21 @@
 package main
 
 import (
-	"calculatorGo2/Act"
 	"strconv"
 	"strings"
 )
 
 // Calculate выполняет математическую операцию и возвращает результат.
 func Calculate(calc string) interface{} {
-	args := strings.Fields(calc) // Разбиение строки на аргументы.
+	// Разбиение строки на аргументы и дальнейшая их обработка
+	args := strings.Fields(calc)
+
+	// Проверка длины каждого операнда
+	for _, arg := range args {
+		if len(arg) > 12 {
+			panic("операнд слишком длинный, максимальная длина 10 символов")
+		}
+	}
 
 	if len(args) != 3 { // Проверка корректности количества аргументов.
 		panic("некорректный формат ввода, ожидалось: 'аргумент1 оператор аргумент2'")
@@ -27,9 +34,6 @@ func Calculate(calc string) interface{} {
 	} else {
 		operand1 = strings.Trim(args[0], `"`) // Удаляем двойные кавычки из строки args[0].
 	}
-
-	//	Функции Check:
-	//	Check.CheckOutputLength(calc)
 
 	// Выполнение операции в зависимости от оператора.
 	switch operator {
@@ -52,7 +56,7 @@ func Calculate(calc string) interface{} {
 		if n < 1 || n > 10 {           // если ошибка или число не в диапазоне от 1 до 10
 			panic("недопустимое число для деления") // вызываем panic
 		}
-		return Act.StringDivideInt(operand1, n) // вызываем функцию для деления строки на число
+		return StringDivideInt(operand1, n) // вызываем функцию для деления строки на число
 	case "*":
 		n, _ := strconv.Atoi(operand2) // конвертируем второй операнд в число
 		if n < 1 || n > 10 {           // если ошибка или число не в диапазоне от 1 до 10
