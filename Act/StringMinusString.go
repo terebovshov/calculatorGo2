@@ -3,7 +3,11 @@ package Act
 
 import "strings"
 
-func StringMinusString(a string, b string) string {
-	result := strings.ReplaceAll(a, b, "")
+func StringMinusString(a, b string) string {
+	if !strings.Contains(a, b) {
+		return a
+	}
+
+	result := strings.Replace(a, b, "", -1)
 	return result
 }

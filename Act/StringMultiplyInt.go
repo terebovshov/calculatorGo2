@@ -1,10 +1,9 @@
 // StringMultiplyInt.go
 package Act
 
-func StringMultiplyInt(operand1 string, n int) string {
-	result := ""
-	for i := 0; i < n; i++ {
-		result += operand1
-	}
+import "strings"
+
+func StringMultiplyInt(a string, n int) string {
+	result := strings.Repeat(a, n)
 	return result
 }
