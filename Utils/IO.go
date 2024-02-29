@@ -9,7 +9,7 @@ import (
 )
 
 func GetUserInput() string {
-	fmt.Print("\nВозможные операции в калькуляторе:\n[\"str\" - \"str\"] [\"str\" - \"str\"] [\"str\" * int] [\"str\" / int]\n(или 'x' для выхода)\n\nВведите выражение:\n")
+	fmt.Print("\nВозможные операции в калькуляторе:\n[\"str\" + \"str\"] [\"str\" - \"str\"] [\"str\" * int] [\"str\" / int]\n(или 'x' для выхода)\n\nВведите выражение:\n")
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	return scanner.Text()
