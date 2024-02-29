@@ -6,7 +6,7 @@ import (
 
 func Operator(input string) string {
 	var operator string
-	operators := [...]string{" + ", " - ", "  *  ", " / "}
+	operators := [...]string{" + ", " - ", " * ", " / "}
 	for _, op := range operators {
 		if strings.Contains(input, op) {
 			operator = op
