@@ -1,8 +1,11 @@
 ## Terminal: go run *.go
 
 ___
+### Version 2.0.1
+- Убрал пару лишних пробелов в Operator.go
+- Обновил исполняемый файл **main**
+___
 ### Version 2.0.0
-
 - Оптимизированы файлы main.go, Calculate.go, IO.go
 - Act.go разбит на отдельные функции
 - Добавлены новые функции Operator, Switch в одноименных файлах
